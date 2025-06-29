@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Pro Store</title>
   <link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -18,14 +17,10 @@
 
 <div id="summary" class="summary-bar">🧾 : 0 BDT</div>
 
-<footer>
-  📸 Screenshot this page<br>
-    <button onclick="takeScreenshot()">Take Screenshot</button><br><br><br><br>
-</footer>
-
-<div id="purchase-summary">
+<!-- Purchase Summary Section -->
+<div id="purchase-summary" style="padding: 20px;">
     <h2>Your Purchase Summary</h2>
-    <table border="1">
+    <table border="1" style="width: 100%; border-collapse: collapse;">
         <thead>
             <tr>
                 <th>Product</th>
@@ -39,35 +34,49 @@
     <h3>Total Amount: <span id="grand-total">0</span> BDT</h3>
 </div>
 
-<script src="app.js"></script>
+<!-- Screenshot Buttons -->
+<div style="text-align: center; margin: 30px;">
+  <button onclick="takeScreenshot('purchase-summary')" style="padding: 10px 20px;">📸 Screenshot Summary</button>
+</div>
 
-
-<!-- Custom Additions Start -->
-<div style="margin-top: 40px; text-align: center;">
+<!-- QR Code Section -->
+<div id="qr-code" style="margin-top: 40px; text-align: center;">
     <h2>bKash QR Code</h2>
     <img src="images/bkash-qr.jpg" alt="bKash QR Code" style="max-width: 300px; margin-bottom: 20px;">
 
     <br>
-    <button onclick="takeScreenshot()" style="padding: 10px 20px; font-size: 16px;">📸 Take Screenshot</button>
+    <button onclick="takeScreenshot('qr-code')" style="padding: 10px 20px; font-size: 16px;">📸 Screenshot QR Code</button>
 
     <br><br>
     <a href="https://s.imoim.net/OFvjsN" target="_blank">
-        <button style="padding: 10px 20px; font-size: 16px; background-color: #00aced; color: white;">📞 Contact via imo</button><br><br><a href="https://wa.me/8801870383854" target="_blank"><button style="background-color:#25D366;color:white;border:none;padding:10px 15px;border-radius:5px;">Contact via WhatsApp</button></a>
+        <button style="padding: 10px 20px; font-size: 16px; background-color: #00aced; color: white;">📞 Contact via imo</button>
+    </a>
+    <br><br>
+    <a href="https://wa.me/8801870383854" target="_blank">
+        <button style="background-color:#25D366;color:white;border:none;padding:10px 15px;border-radius:5px;">Contact via WhatsApp</button>
     </a>
 </div>
 
+<!-- Screenshot Function -->
 <script>
-function takeScreenshot() {
-    html2canvas(document.body).then(function(canvas) {
-        var link = document.createElement('a');
-        link.download = 'screenshot.jpg';
+function takeScreenshot(divId) {
+    const target = document.getElementById(divId);
+    if (!target) {
+        alert("Target not found: " + divId);
+        return;
+    }
+
+    html2canvas(target).then(function(canvas) {
+        const link = document.createElement('a');
+        link.download = divId + '.jpg';
         link.href = canvas.toDataURL('image/jpeg');
         link.click();
     });
 }
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<!-- Custom Additions End -->
+
+<!-- App JS -->
+<script src="app.js"></script>
 
 </body>
 </html>
