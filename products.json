@@ -16,5 +16,11 @@
     "price": 1000,
     "unit": "1kg",
     "image": "images/cabbage.jpg"
+  } ,
+  {
+    "name": "Banana",
+    "price": 1000,
+    "unit": "1pax",
+    "image": "images/banana.jpg"
   }
 ]
