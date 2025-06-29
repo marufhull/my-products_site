@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Chicken",
+    "price": 5000,
+    "unit": "1kg",
+    "image": "images/chicken.jpg"
+  },
+  {
+    "name": "Tomato",
+    "price": 800,
+    "unit": "1kg",
+    "image": "images/tomato.jpg"
+  },
+  {
+    "name": "Cabbage",
+    "price": 1000,
+    "unit": "1kg",
+    "image": "images/cabbage.jpg"
+  }
+]
